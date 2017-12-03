@@ -1,6 +1,9 @@
+import BootstrapVue from 'bootstrap-vue';
+
+Vue.use(BootstrapVue);
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
