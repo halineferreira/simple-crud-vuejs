@@ -2,9 +2,9 @@
   <div>
     <h1>Funcionários</h1>
     <b-form inline>
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName" placeholder="Name" />
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputEmail" placeholder="Email" />
-      <b-button variant="primary">Inserir</b-button>
+      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="newName" placeholder="Name" v-model="newName"/>
+      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="newEmail" placeholder="Email" v-model="newEmail"/>
+      <b-button variant="primary" v-on:click="addEmployee()">Inserir</b-button>
     </b-form>
     <br>
     <table class="table table-striped table-condensed" cellspacing="0" cellpadding="0">
@@ -36,6 +36,16 @@ export default {
   data () {
     return {
       employees: employees
+    }
+  },
+  methods: {
+    addEmployee: function () {
+      if (!this.newName.trim() || !this.newEmail.trim()) { return }
+      this.employees.push(
+        { name: this.newName.trim(), email: this.newEmail.trim() }
+      )
+      this.newName = ''
+      this.newEmail = ''
     }
   }
 }
