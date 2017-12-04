@@ -1,26 +1,31 @@
 <template>
-  <div id="list" class="row">
-      <div class="table-responsive col-md-12">
-          <table class="table table-striped table-condensed" cellspacing="0" cellpadding="0">
-              <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th class="actions">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="employee in employees" :key="employee.name">
-                    <td>{{ employee.name }}</td>
-                    <td>{{ employee.email }}</td>
-                    <td>
-                        <button type="button" class="btn btn-warning btn-xs">Editar</button>
-                        <b-button variant="success" type="button" class="btn btn-danger btn-xs">Excluir</b-button>
-                    </td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+  <div>
+    <h1>Funcionários</h1>
+    <b-form inline>
+      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName" placeholder="Name" />
+      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputEmail" placeholder="Email" />
+      <b-button variant="primary">Inserir</b-button>
+    </b-form>
+    <br>
+    <table class="table table-striped table-condensed" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th class="actions">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="employee in employees" :key="employee.name">
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-xs">Editar</button>
+            <button type="button" class="btn btn-danger btn-xs">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -49,7 +54,6 @@ ul {
 
 li {
   display: inline-block;
-  margin: 0 10px;
 }
 
 a {
