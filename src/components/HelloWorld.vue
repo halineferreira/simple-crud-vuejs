@@ -16,12 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="employee in employees" :key="employee.name">
+        <tr v-for="(employee, index) in employees" :key="employee.name">
           <td>{{ employee.name }}</td>
           <td>{{ employee.email }}</td>
           <td>
             <button type="button" class="btn btn-warning btn-xs">Editar</button>
-            <button type="button" class="btn btn-danger btn-xs">Excluir</button>
+            <button type="button" class="btn btn-danger btn-xs" v-on:click="deleteEmployee(index)">Excluir</button>
           </td>
         </tr>
       </tbody>
@@ -46,6 +46,9 @@ export default {
       )
       this.newName = ''
       this.newEmail = ''
+    },
+    deleteEmployee: function (index) {
+      employees.splice(index, 1)
     }
   }
 }
